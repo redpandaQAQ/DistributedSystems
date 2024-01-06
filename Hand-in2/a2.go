@@ -1,173 +1,90 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"time"
 )
 
-var clientToServer = make(chan Packet)
-var serverToClient = make(chan Packet)
+var chans [2]chan packet //channel
 
-func client(i int) {
-	//defer wg.Done()
+type node struct {
+	id    int
+	seq   int
+	state int // 0 = waiting, 1 = syn sent, 2 = syn received, 3 = established
+}
 
-	state := StateSynSent
-	seq := 100 * i
-	// Client FSM
+type packet struct {
+	ptype     int // 0 = syn, 1 = ack, 2 = synack, 3 = close
+	source_id int
+	seq       int
+	ack       int
+}
+
+func (n *node) connect(nodeid int) {
+	n.state = 1
+	chans[nodeid] <- packet{0, n.id, n.seq, -1}
+	log.Printf("node %d sent syn", n.id)
+
+}
+
+func (n *node) disconnect(nodeid int) {
+	chans[nodeid] <- packet{3, n.id, -1, -1}
+	n.state = 0
+	log.Printf("node %d sent close", n.id)
+}
+
+func (n *node) respond(nodeid int, syn int) {
+	n.state = 2
+	chans[nodeid] <- packet{2, n.id, n.seq, syn + 1}
+	log.Printf("node %d sent synack", n.id)
+}
+
+func (n *node) acknowledge(nodeid int, ack int) {
+	n.state = 3
+	chans[nodeid] <- packet{1, n.id, -1, ack + 1}
+	log.Printf("node %d sent ack", n.id)
+}
+func (n *node) listen() {
 	for {
-		time.Sleep(1 * time.Second)
-		switch state {
-		case StateSynSent:
-			// Client sending SYN packet
-			seq++
-			clientToServer <- Packet{Type: "syn", Seq: seq}
-			state = StateSynReceived
+		p := <-chans[n.id]
+		if p.ptype == 0 && n.state == 0 {
+			time.Sleep(100 * time.Millisecond)
+			n.respond(p.source_id, p.seq)
+			log.Printf("node %d received syn, state changed to %d", n.id, n.state)
+		} else if p.ptype == 2 && n.state == 1 {
+			time.Sleep(100 * time.Millisecond)
+			n.acknowledge(p.source_id, p.seq)
+			log.Printf("node %d received synack, state changed to %d", n.id, n.state)
 
-		case StateSynReceived:
-			// Client receiving SYN+ACK packet
-			p := <-serverToClient
-			fmt.Printf("Client got: syn ack=%d seq=%d\n", p.Ack, p.Seq)
-			state = StateEstablished
+		} else if p.ptype == 1 && n.state == 2 {
+			time.Sleep(100 * time.Millisecond)
+			n.state = 3
+			log.Printf("node %d received ack, state changed to %d", n.id, n.state)
 
-			// Client sending ACK packet
-			seq++
-			clientToServer <- Packet{Type: "ack", Ack: p.Seq + 1, Seq: seq}
+		} else if p.ptype == 3 {
+			time.Sleep(100 * time.Millisecond)
+			n.state = 0
+			log.Printf("node %d received close, state changed to %d", n.id, n.state)
 
-		case StateEstablished:
-			// Simulate data transfer
-			p := <-serverToClient
-			fmt.Printf("Client got: seq=%d data=%s\n", p.Seq, p.Data)
-			state = StateSynSent
 		}
 	}
 }
-
-// Packet represents a TCP packet.
-type Packet struct {
-	Type string
-	Syn  int
-	Ack  int
-	Seq  int
-	Data string
-}
-
-// ConnectionState represents the state of the connection FSM.
-type ConnectionState int
-
-const (
-	// StateSynSent represents the SYN sent state.
-	StateSynSent ConnectionState = iota
-	// StateSynReceived represents the SYN received state.
-	StateSynReceived
-	// StateEstablished represents the established state.
-	StateEstablished
-)
 
 func main() {
-	// Create channels of type Packet
-
-	// Wait group to synchronize goroutines
-	//var wg sync.WaitGroup
-
-	// Client FSM goroutine
-	//wg.Add(1)
-	go client(1)
-	//go client(2)
-
-	// Server FSM goroutine
-	//wg.Add(1)
-	go func() {
-		//defer wg.Done()
-
-		state := StateSynSent
-		seq := 300
-		// Server FSM
-		for {
-			time.Sleep(1 * time.Second)
-			switch state {
-			case StateSynSent:
-				// Server receiving SYN packet
-				p := <-clientToServer
-				fmt.Printf("Server got: syn seq=%d\n", p.Seq)
-				state = StateSynReceived
-
-				// Server sending SYN+ACK packet
-				seq++
-				serverToClient <- Packet{Type: "syn", Ack: p.Seq + 1, Seq: seq}
-
-			case StateSynReceived:
-				// Server receiving ACK packet
-				p := <-clientToServer
-				fmt.Printf("Server got: ack=%d seq=%d\n", p.Ack, p.Seq)
-				state = StateEstablished
-				seq++
-				// Simulate data transfer
-				serverToClient <- Packet{Type: "data", Seq: seq, Data: "Hello from server"}
-
-			case StateEstablished: // just exit, maybe can enter listening (idle) status
-				state = StateSynSent
-			}
-		}
-	}()
-
-	// Wait for both goroutines to finish
-	//wg.Wait()
+	chans[0] = make(chan packet)
+	chans[1] = make(chan packet)
+	a := node{0, 0, 0}
+	b := node{1, 0, 0}
+	go a.listen()
+	go b.listen()
+	a.connect(1)
+	time.Sleep(2 * time.Second)
+	a.disconnect(1)
+	time.Sleep(2 * time.Second)
+	b.connect(0)
+	time.Sleep(2 * time.Second)
+	b.disconnect(0)
 	for {
-
 	}
+
 }
-
-// func main() {
-// 	// Create channels of type Packet
-// 	clientToServer := make(chan Packet)
-// 	serverToClient := make(chan Packet)
-
-// 	//  wait for a fixed number of goroutines to complete their work
-// 	var wg sync.WaitGroup
-
-// 	// Client goroutine
-// 	wg.Add(1)
-// 	go func() {
-// 		defer wg.Done()
-
-// 		// Client sending SYN packet
-// 		clientToServer <- Packet{Type: "syn", Seq: 1}
-
-// 		// Client receiving SYN+ACK packet
-// 		p := <-serverToClient
-// 		fmt.Printf("Client got: syn ack=%d seq=%d\n", p.Ack, p.Seq)
-
-// 		// Client sending ACK packet
-// 		clientToServer <- Packet{Type: "ack", Ack: p.Seq + 1, Seq: 2}
-
-// 		// Simulate data transfer
-// 		p = <-serverToClient
-// 		clientToServer <- Packet{Type: "data", Seq: 3, Data: "Hello from client"}
-// 		fmt.Printf("Client got: seq=%d data=%s\n", p.Seq, p.Data)
-// 	}()
-
-// 	// Server goroutine
-// 	wg.Add(1)
-// 	go func() {
-// 		defer wg.Done()
-
-// 		// Server receiving SYN packet
-// 		p := <-clientToServer
-// 		fmt.Printf("Server got: syn seq=%d\n", p.Seq)
-
-// 		// Server sending SYN+ACK packet
-// 		serverToClient <- Packet{Type: "syn", Ack: p.Seq + 1, Seq: 1}
-
-// 		// Server receiving ACK packet
-// 		p = <-clientToServer
-// 		fmt.Printf("Server got: ack=%d seq=%d\n", p.Ack, p.Seq)
-
-// 		// Simulate data transfer
-// 		serverToClient <- Packet{Type: "data", Seq: 2, Data: "Hello from server"}
-// 		p = <-clientToServer
-// 		fmt.Printf("Server got: seq=%d data=%s\n", p.Seq, p.Data)
-// 	}()
-
-// 	// Wait for both goroutines to finish
-// 	wg.Wait()
-// }
