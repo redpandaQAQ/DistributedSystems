@@ -1,0 +1,43 @@
+2023/10/30 11:15:38 Started server at port: 5454
+2023/10/30 11:15:43 Client1 clock is updated to 1  
+2023/10/30 11:15:43 Server clock is updated to 2 
+2023/10/30 11:15:43 Server clock is updated to 3
+2023/10/30 11:15:43 Client 1 join chat //a client node can join the system
+2023/10/30 11:15:43 Client1 clock is updated to 4
+2023/10/30 11:15:43 Participant 1 joined Chitty-Chat at Lamport time 3, current clock is 4
+2023/10/30 11:15:52 Client2 clock is updated to 1
+2023/10/30 11:15:52 Server clock is updated to 4
+2023/10/30 11:15:52 Server clock is updated to 5
+2023/10/30 11:15:52 Client1 clock is updated to 6
+2023/10/30 11:15:52 Participant 2 joined Chitty-Chat at Lamport time 5, current clock is 6
+2023/10/30 11:15:52 Client 2 join chat
+2023/10/30 11:15:52 Client2 clock is updated to 6
+2023/10/30 11:15:52 Participant 2 joined Chitty-Chat at Lamport time 5, current clock is 6
+2023/10/30 11:15:57 Client3 clock is updated to 1
+2023/10/30 11:15:57 Server clock is updated to 6
+2023/10/30 11:15:57 Server clock is updated to 7
+2023/10/30 11:15:57 Client1 clock is updated to 8
+2023/10/30 11:15:57 Participant 3 joined Chitty-Chat at Lamport time 7, current clock is 8
+2023/10/30 11:15:57 Client2 clock is updated to 8
+2023/10/30 11:15:57 Participant 3 joined Chitty-Chat at Lamport time 7, current clock is 8
+2023/10/30 11:15:57 Client 3 join chat
+2023/10/30 11:15:57 Client3 clock is updated to 8
+2023/10/30 11:15:57 Participant 3 joined Chitty-Chat at Lamport time 7, current clock is 8
+2023/10/30 11:23:53 Client1 clock is updated to 9
+2023/10/30 11:23:53 Server received a message from Client 1   // a client node can send a message
+2023/10/30 11:23:53 Server clock is updated to 10
+2023/10/30 11:23:53 Server clock is updated to 11
+2023/10/30 11:23:53 Client2 clock is updated to 12
+2023/10/30 11:23:53 From 1 at clock 9: message1, current clock is 12
+2023/10/30 11:23:53 Client3 clock is updated to 12
+2023/10/30 11:23:53 From 1 at clock 9: message1, current clock is 12
+2023/10/30 11:23:53 Client1 clock is updated to 12
+2023/10/30 11:23:53 From 1 at clock 9: message1, current clock is 12
+2023/10/30 11:31:02 Client3 clock is updated to 13
+2023/10/30 11:31:02 Server clock is updated to 14
+2023/10/30 11:31:02 Server clock is updated to 15
+2023/10/30 11:31:02 Client2 clock is updated to 16
+2023/10/30 11:31:02 Participant 3 left Chitty-Chat at Lamport time 15, current clock is 16
+2023/10/30 11:31:02 Client1 clock is updated to 16
+2023/10/30 11:31:02 Participant 3 left Chitty-Chat at Lamport time 15, current clock is 16
+2023/10/30 11:31:02 Client 3 left chat // a client node can leave the system

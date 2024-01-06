@@ -1,0 +1,137 @@
+2023/11/14 00:19:21 type x to request access to the Critical Section
+2023/11/14 00:19:21 Started node 3 at port: 5456
+2023/11/14 00:19:23 type x to request access to the Critical Section
+2023/11/14 00:19:23 Started node 2 at port: 5455
+2023/11/14 00:19:25 type x to request access to the Critical Section
+2023/11/14 00:19:25 Started node 1 at port: 5454
+2023/11/14 00:19:25 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:19:28 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:19:31 Node 1 is not requesting the critical section, give token to node 2
+2023/11/14 00:19:32 Node 3 is requesting access to the critical section
+2023/11/14 00:19:34 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:19:37 Node 3 is now in the critical section
+2023/11/14 00:19:39 Node 2 is requesting access to the critical section
+2023/11/14 00:19:42 Node 1 is requesting access to the critical section
+2023/11/14 00:19:42 Node 3 exits critical section
+2023/11/14 00:19:42 Node 1 is now in the critical section
+2023/11/14 00:19:47 Node 1 exits critical section
+2023/11/14 00:19:47 Node 2 is now in the critical section
+2023/11/14 00:19:52 Node 2 exits critical section
+2023/11/14 00:19:52 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:19:55 Node 3 is requesting access to the critical section
+2023/11/14 00:19:55 Node 1 is not requesting the critical section, give token to node 2
+2023/11/14 00:19:56 Node 1 is requesting access to the critical section
+2023/11/14 00:19:58 Node 2 is requesting access to the critical section
+2023/11/14 00:19:58 Node 2 is now in the critical section
+2023/11/14 00:20:03 Node 2 exits critical section
+2023/11/14 00:20:03 Node 3 is now in the critical section
+2023/11/14 00:20:08 Node 3 exits critical section
+2023/11/14 00:20:08 Node 1 is now in the critical section
+2023/11/14 00:20:13 Node 1 exits critical section
+2023/11/14 00:20:13 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:20:16 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:20:19 Node 1 is not requesting the critical section, give token to node 2
+2023/11/14 00:20:22 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:20:25 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:20:26 Node 3 is requesting access to the critical section
+2023/11/14 00:20:28 Node 2 is requesting access to the critical section
+2023/11/14 00:20:28 Node 1 is not requesting the critical section, give token to node 2
+2023/11/14 00:20:29 Node 1 is requesting access to the critical section
+2023/11/14 00:20:31 Node 2 is now in the critical section
+2023/11/14 00:20:36 Node 2 exits critical section
+2023/11/14 00:20:36 Node 3 is now in the critical section
+2023/11/14 00:20:41 Node 3 exits critical section
+2023/11/14 00:20:41 Node 1 is now in the critical section
+2023/11/14 00:20:46 Node 1 exits critical section
+2023/11/14 00:20:46 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:20:49 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:20:52 Node 1 is not requesting the critical section, give token to node 2
+2023/11/14 00:20:55 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:20:57 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:57 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:57 Could not sent token to node 3, will retry in 1 second
+signal: interrupt
+2023/11/14 00:20:57 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:57 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:57 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:57 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:57 Could not sent token to node 3, will retry in 1 second
+signal: interrupt
+2023/11/14 00:20:58 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:58 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:58 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:58 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:58 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:58 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:58 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:58 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:20:58 Could not sent token to node 3, will retry in 1 second
+signal: interrupt
+2023/11/14 00:22:26 type x to request access to the Critical Section
+2023/11/14 00:22:26 Started node 2 at port: 5455
+2023/11/14 00:22:28 type x to request access to the Critical Section
+2023/11/14 00:22:28 Started node 3 at port: 5456
+2023/11/14 00:22:31 type x to request access to the Critical Section
+2023/11/14 00:22:31 Started node 1 at port: 5454
+2023/11/14 00:22:31 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:22:34 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:22:37 Node 1 is not requesting the critical section, give token to node 2
+2023/11/14 00:22:39 Node 3 is requesting access to the critical section
+2023/11/14 00:22:40 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:22:41 Node 2 is requesting access to the critical section
+2023/11/14 00:22:43 Node 1 is requesting access to the critical section
+2023/11/14 00:22:43 Node 3 is now in the critical section
+2023/11/14 00:22:44 Node 3 is requesting access to the critical section
+2023/11/14 00:22:48 Node 3 exits critical section
+2023/11/14 00:22:48 Node 1 is now in the critical section
+2023/11/14 00:22:53 Node 1 exits critical section
+2023/11/14 00:22:53 Node 2 is now in the critical section
+2023/11/14 00:22:58 Node 2 exits critical section
+2023/11/14 00:22:58 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:23:01 Node 1 is not requesting the critical section, give token to node 2
+2023/11/14 00:23:04 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:23:07 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:23:10 Node 1 is not requesting the critical section, give token to node 2
+2023/11/14 00:23:12 Node 1 is requesting access to the critical section
+2023/11/14 00:23:13 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:23:16 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:23:19 Node 1 is now in the critical section
+2023/11/14 00:23:24 Node 1 exits critical section
+2023/11/14 00:23:24 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:23:27 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:23:28 Node 2 is requesting access to the critical section
+2023/11/14 00:23:30 Node 1 is not requesting the critical section, give token to node 2
+2023/11/14 00:23:31 Node 1 is requesting access to the critical section
+2023/11/14 00:23:33 Node 2 is now in the critical section
+2023/11/14 00:23:34 Node 3 is requesting access to the critical section
+2023/11/14 00:23:38 Node 2 exits critical section
+2023/11/14 00:23:38 Node 3 is now in the critical section
+2023/11/14 00:23:43 Node 3 exits critical section
+2023/11/14 00:23:43 Node 1 is now in the critical section
+2023/11/14 00:23:48 Node 1 exits critical section
+2023/11/14 00:23:48 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:23:51 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:23:54 Node 1 is not requesting the critical section, give token to node 2
+2023/11/14 00:23:57 Node 2 is not requesting the critical section, give token to node 3
+2023/11/14 00:24:00 Node 3 is not requesting the critical section, give token to node 1
+2023/11/14 00:24:01 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:01 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:01 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:01 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:01 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:01 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:01 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:01 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:01 Could not sent token to node 3, will retry in 1 second
+signal: interrupt
+signal: interrupt
+2023/11/14 00:24:02 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:02 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:02 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:02 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:02 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:02 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:02 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:02 Could not sent token to node 3, will retry in 1 second
+2023/11/14 00:24:02 Could not sent token to node 3, will retry in 1 second
+signal: interrupt

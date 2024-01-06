@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package handin4;
+
+option go_package = "grpc/proto";
+
+service MutualExclusion {
+  rpc SendToken (Token) returns (Response) {}
+  rpc Exit (Token) returns (Response) {}
+}
+
+message Token {
+  int32 id = 1;
+}
+
+message Response {
+  bool success = 1;
+}

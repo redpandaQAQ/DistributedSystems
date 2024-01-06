@@ -1,0 +1,37 @@
+2023/10/28 16:35:37 Started server at port: 5454
+2023/10/28 16:35:40 Client1 clock is updated to 1
+2023/10/28 16:35:40 Server clock is updated to 2
+2023/10/28 16:35:40 Client 1 join chat
+2023/10/28 16:35:47 Client2 clock is updated to 1
+2023/10/28 16:35:47 Server clock is updated to 3
+2023/10/28 16:35:47 Client1 clock is updated to 4
+2023/10/28 16:35:47 Participant 2 joined Chitty-Chat at Lamport time 3, current clock is 4
+2023/10/28 16:35:47 Client 2 join chat
+2023/10/28 16:35:50 Client3 clock is updated to 1
+2023/10/28 16:35:50 Server clock is updated to 4
+2023/10/28 16:35:50 Client1 clock is updated to 5
+2023/10/28 16:35:50 Participant 3 joined Chitty-Chat at Lamport time 4, current clock is 5
+2023/10/28 16:35:50 Client2 clock is updated to 5
+2023/10/28 16:35:50 Participant 3 joined Chitty-Chat at Lamport time 4, current clock is 5
+2023/10/28 16:35:50 Client 3 join chat
+2023/10/28 16:36:38 Server received a message from Client 1
+2023/10/28 16:36:38 Server clock is updated to 7
+2023/10/28 16:36:38 Server clock is updated to 8
+2023/10/28 16:36:38 Client2 clock is updated to 9
+2023/10/28 16:36:38 From 1 at clock 6: hello, current clock is 9
+2023/10/28 16:36:38 Client3 clock is updated to 9
+2023/10/28 16:36:38 From 1 at clock 6: hello, current clock is 9
+2023/10/28 16:36:47 Server received a message from Client 2
+2023/10/28 16:36:47 Server clock is updated to 11
+2023/10/28 16:36:47 Server clock is updated to 12
+2023/10/28 16:36:47 Client3 clock is updated to 13
+2023/10/28 16:36:47 From 2 at clock 10: hi, current clock is 13
+2023/10/28 16:36:47 Client1 clock is updated to 13
+2023/10/28 16:36:47 From 2 at clock 10: hi, current clock is 13
+2023/10/28 16:36:51 Client3 clock is updated to 14
+2023/10/28 16:36:51 Server clock is updated to 15
+2023/10/28 16:36:51 Client2 clock is updated to 16
+2023/10/28 16:36:51 Participant 3 left Chitty-Chat at Lamport time 15, current clock is 16
+2023/10/28 16:36:51 Client1 clock is updated to 16
+2023/10/28 16:36:51 Participant 3 left Chitty-Chat at Lamport time 15, current clock is 16
+2023/10/28 16:36:51 Client 3 left chat

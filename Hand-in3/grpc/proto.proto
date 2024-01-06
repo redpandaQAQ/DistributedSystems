@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package chittyChat;
+
+option go_package = "grpc/proto";
+
+message ChatMessage {
+  int64 senderId = 1;
+  int64 timestamp = 2;
+  string messageText = 3;
+}
+
+message ServerResponse {
+  int64 timestamp = 1;
+  bool result = 2;                   
+}
+
+message ClientRequest {
+  int64 clientId = 1;
+  int64 timestamp = 2;
+}
+
+service Chat {
+  rpc ClientSend(ChatMessage) returns (ServerResponse);
+  rpc ClientReceive(ClientRequest) returns (stream ChatMessage);
+  rpc Join(ClientRequest) returns (ServerResponse);
+  rpc Leave(ClientRequest) returns (ServerResponse);
+}
