@@ -30,7 +30,7 @@ Use server-client architecture. The client send messages to the server, and the 
 - When a server broadcast a message to the clients, it will increase the clock by 1. Then attach the current server clock to the ChatMessage.TimeStamp.
 - When a server receive a message, it will compare the clock of the message and its own clock, and set the clock to the max of the two clocks. Then increase the clock by 1.
 ### Provide a diagram, that traces a sequence of RPC calls together with the Lamport timestamps, that corresponds to a chosen sequence of interactions: Client X joins, Client X Publishes, ..., Client X leaves. Include documentation (system logs) in your appendix.
-![alt text](https://github.itu.dk/HelloWorld/Hand-in3/blob/yusu/diagram.jpg?raw=true)
+![alt text](https://github.com/redpandaQAQ/DistributedSystems/blob/main/Hand-in3/diagram.jpg)
 - see diagram.log
 ### Provide a link to a Git repo with your source code in the report
 https://github.itu.dk/HelloWorld/Hand-in3
